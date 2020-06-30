@@ -1,12 +1,13 @@
 function enviar(){
-    var txtEmail = document.getElementById("txtEmail").value;
+    var txtLogin = document.getElementById("txtLogin").value;
     var txtSenha = document.getElementById("txtSenha").value;
 
-    console.log("Valores digitados = "+txtEmail+" / "+ txtSenha);
-
+    console.log("Valores digitados = "+txtLogin+"  / "+ txtSenha);
+   
     // json que vai no corpo da mensagem
     var msgBody = {
-        email: txtEmail,
+        email: txtLogin,
+        racf: txtLogin,
         senha: txtSenha
     }
 

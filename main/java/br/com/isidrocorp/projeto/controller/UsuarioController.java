@@ -30,6 +30,9 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> login(@RequestBody Usuario incompleto) {
 		
 		Usuario resultado = dao.findByRacfOrEmail(incompleto.getRacf(), incompleto.getEmail());
+		
+
+		
 		if (resultado != null) {  // achei um usuario no banco!
 			if (incompleto.getSenha().equals(resultado.getSenha())) { // as senhas coincidem??
 				resultado.setSenha("*******");
