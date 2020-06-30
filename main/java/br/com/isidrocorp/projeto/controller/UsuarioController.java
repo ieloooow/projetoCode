@@ -16,8 +16,8 @@ import br.com.isidrocorp.projeto.model.Usuario;
 @RestController
 @CrossOrigin("*")
 public class UsuarioController {
-	
-	@Autowired // injeção da dependecia
+
+	@Autowired               // injecao da dependência
 	private UsuarioDAO dao;
 	
 	@GetMapping("/usuarios")
@@ -26,65 +26,32 @@ public class UsuarioController {
 		return lista;
 	}
 	
-	
-	/*
 	@PostMapping("/login")
-	public Usuario login(@RequestBody Usuario userEmailSenha) {
-		Usuario user = dao.findByEmailAndSenha(userEmailSenha.getEmail(),userEmailSenha.getSenha());
-		return user;
-	}*/
-	@PostMapping("/login")
-
 	public ResponseEntity<Usuario> login(@RequestBody Usuario incompleto) {
-
 		
-
 		Usuario resultado = dao.findByRacfOrEmail(incompleto.getRacf(), incompleto.getEmail());
-
 		if (resultado != null) {  // achei um usuario no banco!
-
 			if (incompleto.getSenha().equals(resultado.getSenha())) { // as senhas coincidem??
-
 				resultado.setSenha("*******");
-
-				return ResponseEntity.ok(resultado);
-
+				return ResponseEntity.ok(resultado); // o correto é transformar isso num token
 			}
-
 			else {
-
 				return ResponseEntity.status(403).build(); // retorno "Forbidden"
-
 			}
-
 		}
-
 		else {
-
-			return ResponseEntity.notFound().build();   // retorno um status de "Não encontrado"
-
+			return ResponseEntity.status(404).build();   // retorno um status de "Não encontrado"
 		}
+		/*if (incompleto.getEmail() != null) {  // meu usuario do parametro vei com o email
+			System.out.println("Recuperando pelo email!!!!! ");
+			Usuario resultado = dao.findByEmailAndSenha(incompleto.getEmail(), incompleto.getSenha());
+			
+			return resultado;
+		}
+		else {  // nao veio com email, vou usar o RACF
+			System.out.println("Recuperando pelo RACF!!!!");
+			Usuario resultado = dao.findByRacfAndSenha(incompleto.getRacf(),  incompleto.getSenha());
+			return resultado;
+		}*/
 	}
 }
-		/*if (incompleto.getEmail() != null) {  // meu usuario do parametro vei com o email
-
-			System.out.println("Recuperando pelo email!!!!! ");
-
-			Usuario resultado = dao.findByEmailAndSenha(incompleto.getEmail(), incompleto.getSenha());
-
-			
-
-			return resultado;
-
-		}
-
-		else {  // nao veio com email, vou usar o RACF
-
-			System.out.println("Recuperando pelo RACF!!!!");
-
-			Usuario resultado = dao.findByRacfAndSenha(incompleto.getRacf(),  incompleto.getSenha());
-
-			return resultado;
-
-		}*/	
-	

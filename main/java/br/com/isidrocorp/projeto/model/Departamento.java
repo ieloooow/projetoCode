@@ -17,13 +17,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name="tbl_departamento")
 public class Departamento {
 	
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="iddepto")
 	private int id;
 	
-	@Column(name="nomdedpto", length=50)
+	@Column(name="nomedepto", length=80)
 	private String nome;
 	
 	@Column(name="andar")
@@ -31,10 +30,19 @@ public class Departamento {
 	
 	@Column(name="unidade", length=50)
 	private String unidade;
-	
+
 	@JsonIgnoreProperties("depto")
 	@OneToMany(mappedBy="depto", cascade=CascadeType.ALL)
 	private List<Usuario> listaUsuarios;
+	
+	
+	public List<Usuario> getListaUsuarios() {
+		return listaUsuarios;
+	}
+
+	public void setListaUsuarios(List<Usuario> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
 
 	public int getId() {
 		return id;
@@ -67,13 +75,8 @@ public class Departamento {
 	public void setUnidade(String unidade) {
 		this.unidade = unidade;
 	}
-
-	public List<Usuario> getListaUsuarios() {
-		return listaUsuarios;
-	}
-
-	public void setListaUsuarios(List<Usuario> listaUsuarios) {
-		this.listaUsuarios = listaUsuarios;
-	}
+	
+	
+	
 
 }

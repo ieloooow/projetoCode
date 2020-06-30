@@ -22,25 +22,30 @@ public class Transacao {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_transacao")
-	private int id;
+	private int   id;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="data_hora")
-	private Date dataHora;
+	private Date  dataHora;
+	
 	@Column(name="dispositivo")
-	private int dispositivo;
+	private int   dispositivo;
+	
 	@Column(name="valor_solic")
 	private float valorSolicitado;
+	
 	@Column(name="valor_aut")
-	private float valorAutorizdo;
+	private float valorAutorizado;
+	
 	@Column(name="status")
-	private int status;
+	private int   status;
 	
 	@JsonIgnoreProperties("listaTransacoes")
 	@ManyToOne
 	@JoinColumn(name="ag_financeiro")
 	private AgenteFinanceiro agente;
 
+	
 	public int getId() {
 		return id;
 	}
@@ -73,12 +78,12 @@ public class Transacao {
 		this.valorSolicitado = valorSolicitado;
 	}
 
-	public float getValorAutorizdo() {
-		return valorAutorizdo;
+	public float getValorAutorizado() {
+		return valorAutorizado;
 	}
 
-	public void setValorAutorizdo(float valorAutorizdo) {
-		this.valorAutorizdo = valorAutorizdo;
+	public void setValorAutorizado(float valorAutorizado) {
+		this.valorAutorizado = valorAutorizado;
 	}
 
 	public int getStatus() {
@@ -98,4 +103,8 @@ public class Transacao {
 	}
 	
 	
+	
+	
+	
+
 }

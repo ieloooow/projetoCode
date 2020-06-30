@@ -13,27 +13,27 @@ import br.com.isidrocorp.projeto.dao.DepartamentoDAO;
 import br.com.isidrocorp.projeto.model.Departamento;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("*") 
 public class DepartamentoController {
 
-	
-	
 	@Autowired
 	DepartamentoDAO dao;
 	
-	@GetMapping("/departamento")
+	@GetMapping("/departamentos")
 	public ArrayList<Departamento> listarTodos(){
 		ArrayList<Departamento> lista = (ArrayList<Departamento>)dao.findAll();
 		return lista;
 	}
 	
-	@GetMapping("/departamento/{id}")
+	
+	@GetMapping("/departamentos/{id}")
 	public ResponseEntity<Departamento> buscarPeloId(@PathVariable int id){
 		Departamento depto = dao.findById(id).orElse(null);
-		if(depto != null)
-		return ResponseEntity.ok(depto);
-		
-		else
+		if (depto != null) {
+			return ResponseEntity.ok(depto);
+		}
+		else {
 			return ResponseEntity.notFound().build();
+		}
 	}
 }
