@@ -30,8 +30,10 @@ public class AgenteFinanceiroController {
 	public ArrayList<AgenteFinanceiro> recuperarTopTen(){
 		ArrayList<AgenteFinanceiro> lista ;
 		lista = (ArrayList<AgenteFinanceiro>)dao.findAllByOrderByVolumeDesc();
+			
 		return lista;
 	}
+
 	
 	@GetMapping("/agentesfinanceiros/{id}")
 	public ResponseEntity<AgenteFinanceiro> recuperarPeloId(@PathVariable int id){

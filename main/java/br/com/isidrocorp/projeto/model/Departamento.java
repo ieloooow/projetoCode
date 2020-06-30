@@ -22,7 +22,7 @@ public class Departamento {
 	@Column(name="iddepto")
 	private int id;
 	
-	@Column(name="nomedepto", length=80)
+	@Column(name="nomdedpto", length=80)
 	private String nome;
 	
 	@Column(name="andar")
