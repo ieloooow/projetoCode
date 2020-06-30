@@ -13,7 +13,6 @@ var templateUSR = `<div class="row rowuser">
                             Unidade: **UNIDADE** <br>
                             Andar: **ANDAR**
                         </div>
-
                    </div>`;
 
 

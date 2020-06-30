@@ -24,6 +24,8 @@ function verificaUsuario(){
     }
 }
 
+
+/*
 var templateAgentes = `<div class="row">
                         <div class="col-md-6">                        
                             NOME: **NOME** <br>
@@ -32,6 +34,9 @@ var templateAgentes = `<div class="row">
                             Numero Transcaoes: **TRANSCACOES** <br>
                         </div>
                    </div>`;
+*/
+
+
 
 
 function buscaAgentes(){
@@ -57,13 +62,32 @@ function preencheAgente(resJson) {
 
     // numero de agentes menor que 10
     else{
+        contSTR = contSTR + iniciotabela 
         for (i = 0; i < resJson.length; i++) {
             var agente = resJson[i];
                 var novaLinha = templateAgentes.replace("**NOME**", agente.nome)
                         .replace("**TRANSCACOES**", agente.volume)
                 contSTR = contSTR + novaLinha;
-            }  
+            }
+            contSTR = contSTR + fimTabela   
     }
 
     document.getElementById("conteudo").innerHTML = contSTR;
 }
+
+var templateAgentes = `
+                    <tr>                                            
+                            <td>**NOME** </td>
+                            <td>**TRANSCACOES** </td>
+                    </tr>
+                   `;
+
+var iniciotabela=`<table>
+<tr>
+    <th scope="col"> Parceiro<th>
+    <th scope="col"> Transacoes<th>
+</tr>
+`;
+
+
+var fimTabela=`</table>`;
