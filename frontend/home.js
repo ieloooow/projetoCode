@@ -48,7 +48,7 @@ var selectFim=`</select>`;
 function preencheParceiros(resJson){
     console.log(resJson);
     var contSTR = "";
-
+    contSTR = contSTR + `<option value="default">Selecione Parceiro</option>`
     for(i=0;i < resJson.length;i++){
         var parceiro = resJson[i];
         var  novaLinha= templateSelect.replace("**PARCEIRONOME**", parceiro.nome)
