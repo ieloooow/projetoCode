@@ -10,7 +10,7 @@ function preencheAgente(resJson){
     var contSTR = "";
 
      var novaLinha = templateAgentes.replace("**PARCEIRO**", resJson.nome)
-                                    .replace("**TRANSCACOES**", resJson.volume)
+                                    .replace("**TRANSACOES**", resJson.volume)
                                     .replace("**SUCESSO**", resJson.statusOk)
                                     .replace("**FALHA**", resJson.statusFalha)
                                     .replace("**FRAUDES**", resJson.statusFraude);

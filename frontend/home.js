@@ -1,10 +1,18 @@
-var templateBarra = `<img src="**FOTO**" width="35px"> 
+var templateBarra = `
+                        <br>
+                        <br>  
+                      <img src="**FOTO**" width="35px"> 
                        Bem vindo **NOME**
                        (<a href="departamento.html?id=**IDDEP**">**DEPARTAMENTO**</a>)
-                       <button type="button" class="logoff"  onclick="logout()" >Logoff</button>                      
+                       <br>
+                       <br>
+                       <b class"fa fa-sign-out-alt" onclick="logout()">Logout</button>                      
                        `;
-
                        
+function logout(){
+    localStorage.clear();
+    window.location="index.html";
+}                       
 
 function verificaUsuario(){
     // existe alguma info de "userDash" no armazenamento local?

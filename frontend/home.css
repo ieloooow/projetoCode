@@ -24,7 +24,7 @@ table.center tr:hover {background-color: #ddd;}
   }
 
 
-  button.logoff {
+b {
     border: none;
     color:white;
     padding: 1px 1px;
@@ -37,7 +37,7 @@ table.center tr:hover {background-color: #ddd;}
     position: absolute;
     top: 8px;
     right: 16px;
-    background-color: red;
+    background-color: blue;
   }
 
   
