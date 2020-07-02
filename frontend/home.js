@@ -24,6 +24,7 @@ function verificaUsuario(){
                                                     
         buscaAgentes();     
         buscaParceiros();                                               
+         
     }
 }
 
@@ -31,8 +32,8 @@ function verificaUsuario(){
 var templateSelect=`
       <option value="**PARCEIROID**">**PARCEIRONOME**</option>`;
 
-var selectInicio=`<label for="parceiros">Parceiros:</label>
-<select name="parceiro" id="parceiro">`;
+var selectInicio=`<label for="lparceiros">Parceiros:</label>
+<select id="parceiro" onChange="update()">`;
 
 var selectFim=`</select>`;
 
@@ -122,5 +123,14 @@ var iniciotabela=`<table class="center">
 
 
 var fimTabela=`</table>`;
+
+
+function update() {
+            var select = document.getElementById('parceiro');
+            var option = select.options[select.selectedIndex];
+
+            document.getElementById("conteudoParceiro").innerHTML = "/agentesfinanceiros/"+option.value+"/dashboard"
+            window.location.href = "dashboard.html?"+option.value
+        }
 
 
