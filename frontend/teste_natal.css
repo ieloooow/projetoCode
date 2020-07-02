@@ -10,3 +10,7 @@ ol{
     border-radius: 5px;
     box-shadow: 5px 5px 5px black;
 }
+
+body{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}

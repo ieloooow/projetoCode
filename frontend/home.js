@@ -1,6 +1,8 @@
 var templateBarra = `<img src="**FOTO**" width="35px"> 
                        Bem vindo **NOME**
-                       (<a href="departamento.html?id=**IDDEP**">**DEPARTAMENTO**</a>)`;
+                       (<a href="departamento.html?id=**IDDEP**">**DEPARTAMENTO**</a>)
+                       <button type="button" class="logoff"  onclick="logout()" >Logoff</button>                      
+                       `;
 
                        
 
@@ -20,10 +22,35 @@ function verificaUsuario(){
                                                     .replace("**IDDEP**",user.depto.id)
                                                     .replace("**DEPARTAMENTO**",user.depto.nome);    
                                                     
-        buscaAgentes();                                                    
+        buscaAgentes();     
+        buscaParceiros();                                               
     }
 }
 
+
+var templateSelect=`
+      <option value="**PARCEIROID**">**PARCEIRONOME**</option>`;
+
+var selectInicio=`<label for="parceiros">Parceiros:</label>
+<select name="parceiro" id="parceiro">`;
+
+var selectFim=`</select>`;
+
+function preencheParceiros(resJson){
+    console.log(resJson);
+    var contSTR = "";
+
+    for(i=0;i < resJson.length;i++){
+        var parceiro = resJson[i];
+        var  novaLinha= templateSelect.replace("**PARCEIRONOME**", parceiro.nome)
+                                    .replace("**PARCEIROID**", parceiro.id);
+                        
+        contSTR = contSTR + novaLinha
+    }
+
+
+    document.getElementById("parceiros").innerHTML = selectInicio+contSTR+selectFim
+}
 
 /*
 var templateAgentes = `<div class="row">
@@ -36,7 +63,11 @@ var templateAgentes = `<div class="row">
                    </div>`;
 */
 
-
+function buscaParceiros(){
+    fetch("http://localhost:8080/agentesfinanceiros")
+            .then(res => res.json())
+            .then(res => preencheParceiros(res))
+}
 
 
 function buscaAgentes(){
@@ -82,12 +113,14 @@ var templateAgentes = `
                     </tr>
                    `;
 
-var iniciotabela=`<table>
+var iniciotabela=`<table class="center">
 <tr>
-    <th scope="col"> Parceiro<th>
-    <th scope="col"> Transacoes<th>
+    <th scope="col"> Parceiro</th>
+    <th scope="col"> Transacoes</th>
 </tr>
 `;
 
 
 var fimTabela=`</table>`;
+
+
