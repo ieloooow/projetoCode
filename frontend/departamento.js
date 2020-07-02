@@ -1,11 +1,24 @@
-var templateUser = `<div class="row">
-                        <div class="col-md-12">
+/*var templateUser = `<div class="card">              
+                        <img src="**LINKFOTO**  style="width:100%">
                            <h3>**NOME**</h3>
                            Email: **EMAIL**
                            RACF:  **RACF**
                            <hr>
-                        </div>
-                    </div>`;
+                    </div>`;*/
+
+var templateUser= `
+<h3>Departamento - **DEPARTAMENTO**</h3>
+<div class="row">
+<div a class="col-md-2 comborda">
+   <img src="**LINKFOTO**" width="100%">
+</div>
+<div  b class="col-md-6 comborda">
+    <h3> **NOME** </h3>
+    Racf: **RACF** <br>
+    Email: **EMAIL** <br>
+</div>
+</div>`;
+
 function carregaDadosDepto(){
     var parametro = window.location.search;
     console.log("URL = "+parametro);
@@ -28,7 +41,10 @@ function preenche(res){
         var user = res.listaUsuarios[i];
         linha = linha + templateUser.replace("**NOME**",user.nome)
                                     .replace("**EMAIL**",user.email)
-                                    .replace("**RACF**", user.racf);
+                                    .replace("**RACF**", user.racf)
+                                    .replace("**LINKFOTO**", user.linkFoto)
+                                    .replace("**DEPARTAMENTO**",res.nome);
     }
     document.getElementById("conteudo").innerHTML = linha;
 }
+
