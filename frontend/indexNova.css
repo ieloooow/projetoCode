@@ -1,0 +1,16 @@
+#resposta{
+    color: red;
+}
+
+body{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+nav{
+    background-color: #fd7e14;
+    color: white
+  }
+
+  a{
+    color: white;
+  }

@@ -61,7 +61,7 @@ function preencheTabela(resJson){
 
 function logout(){
     window.localStorage.clear();
-    window.location="index.html";
+    window.location="indexNova.html";
 }
 
 
@@ -70,7 +70,7 @@ function verificaUsuario(){
     var userLogado = localStorage.getItem("userDash");
     if (!userLogado){
         // se não tiver, redireciona pra o INDEX  (ou seja, não tá logado)
-        window.location="index.html";
+        window.location="indexNova.html";
     }
     else{
         // se tiver, mostra na barrinha
