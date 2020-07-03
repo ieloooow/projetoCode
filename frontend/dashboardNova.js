@@ -28,7 +28,7 @@ var templateBarra = `
                          <img src="**FOTO**" width="50px" height="50px"> 
                          <br>
                          
-                                 **NOME**
+                         &nbsp   **NOME**  &nbsp
                        
                        <br>
                        <br>
@@ -46,7 +46,7 @@ function carregarDashboard(){
 }
 
 
-function preencheTabela(resJson){
+function preencheTabela(resJson, tipo){
     console.log(resJson);
     var contSTR = "";
     
@@ -81,7 +81,54 @@ function verificaUsuario(){
                                                     .replace("**IDDEP**",user.depto.id)
                                                     .replace("**DEPARTAMENTO**",user.depto.nome);    
                                                     
-        carregarDashboard();                                            
+        carregarDashboard();   
+        carregaDash();                                         
          
     }
 }
+
+
+function preencheTudao(res){
+    document.getElementById("statusOk").innerHTML = "<h3>SUCESSO "+res.statusOk+"</h3>";
+    document.getElementById("statusFalha").innerHTML = "<h3>FALHA  "+res.statusFalha+"</h3>";
+    document.getElementById("statusFraude").innerHTML = "<h3>FRAUDE  "+res.statusFraude+"</h3>";
+    document.getElementById("nomeAgente").innerHTML="<h2>"+res.nome+"</h2>";
+    document.getElementById("volumeAgente").innerHTML="<h2>Volume: "+res.volume+"</h2>";
+
+    var ctx = document.getElementById("meuGrafico").getContext("2d");
+    ctx.clearRect(0, 0, meuGrafico.width, meuGrafico.height);
+
+    var grafico='';
+    
+
+    // criando a variavel do tipo grafico
+    var grafico =  new Chart(ctx,
+        {
+            type: 'doughnut',
+            data: {
+                labels: ['Sucesso', 'Falhas', 'Fraude'],
+                datasets: [{
+                    label: 'Transacoes nas ultimas 24h',
+                    backgroundColor: [ 
+                        '#208000',
+                        '#ebe134',
+                        '#ff0000',
+                    ],
+                    data:[res.statusOk, res.statusFalha, res.statusFraude]
+                }]
+            }
+        });
+
+}
+
+
+function carregaDash(tipo){
+    var idDash = window.location.search.substr(1);
+    console.log("ID"+idDash);
+
+    fetch(("http://localhost:8080/agentesfinanceiros/"+idDash+"/dashboard"))
+       .then(res => res.json())
+       .then(res => preencheTudao(res,tipo));
+}
+
+

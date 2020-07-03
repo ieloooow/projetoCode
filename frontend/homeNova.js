@@ -4,7 +4,7 @@ var templateBarra = `
                          <img src="**FOTO**" width="50px" height="50px"> 
                          <br>
                          
-                                 **NOME**
+                              &nbsp   **NOME**  &nbsp
                        
                        <br>
                        <br>
