@@ -1,27 +1,37 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="home.css">
-        <script type="text/javascript" src="home.js"></script>
+        <link rel="stylesheet" href="homeNova.css">
+        <script type="text/javascript" src="homeNova.js"></script>
         <link rel="icon" href="https://logodownload.org/wp-content/uploads/2014/05/itau-logo-1.png">
         <title>Home</title>
     </head>
     <body onload="verificaUsuario()">        
-        <div class="container">
-            <br>
 
-            <div  class="row justify-content-end">
-                <button type="button" class="btn-primary" onclick="logout()">Logout</button>
-            </div>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="homeNova.html"><img src="https://estatico.itau.com.br/ibanking/commons/img/logo-itau.png" alt="Workplace" usemap="#workmap" width="50" height="50"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="homeNova.html">Home<span class="sr-only">(página atual)</span></a>
+                </li>
 
-            <div class="row">
-                <div class="col-md-12" id="barraUser">
-                    <h3 class="text-center">Card DashBoard</h3>                  
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <div>
+                    <label id="barraUser"></label>
                 </div>
+                <button class="btn btn-outline-primary my-2 my-sm-0" onclick="logout()">Logout</button>
+              </form>
             </div>
-        </div> 
+          </nav>
 
-        <div class="container">
+          <br>
+          <div class="container">
             <div class="row">
                 <br>
                 <br>
@@ -32,13 +42,16 @@
             </div>
         </div> 
 
-        <div class="container">
+          
+          <div class="container">
+            <h3 class="text-center">TOP 10 - Parceiros</h3>
             <div class="row">
                 <div class="col-md-12">
                     <h3 class="text-center" id="conteudo">TOP 10 - Agentes</h3>         
                 </div>           
             </div>
         </div> 
+
 
         <div class="container">
             <div class="row">

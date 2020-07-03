@@ -22,7 +22,19 @@ var template=
     </tr>
 </table>
 `
-
+var templateBarra = `
+                        <br>
+                        <br>  
+                         <img src="**FOTO**" width="50px" height="50px"> 
+                         <br>
+                         
+                                 **NOME**
+                       
+                       <br>
+                       <br>
+                      
+                       `;
+                       /*(<a href="departamento.html?id=**IDDEP**">**DEPARTAMENTO**</a>)--*/
 
 
 
@@ -52,6 +64,7 @@ function logout(){
     window.location="index.html";
 }
 
+
 function verificaUsuario(){
     // existe alguma info de "userDash" no armazenamento local?
     var userLogado = localStorage.getItem("userDash");
@@ -59,9 +72,16 @@ function verificaUsuario(){
         // se não tiver, redireciona pra o INDEX  (ou seja, não tá logado)
         window.location="index.html";
     }
-
-    
     else{
-        carregarDashboard();
+        // se tiver, mostra na barrinha
+        var user = JSON.parse(userLogado);
+        document.getElementById("barraUser").innerHTML = templateBarra
+                                                    .replace("**FOTO**",user.linkFoto)
+                                                    .replace("**NOME**", user.nome)
+                                                    .replace("**IDDEP**",user.depto.id)
+                                                    .replace("**DEPARTAMENTO**",user.depto.nome);    
+                                                    
+        carregarDashboard();                                            
+         
     }
 }

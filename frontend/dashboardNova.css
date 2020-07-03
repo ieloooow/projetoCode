@@ -59,3 +59,13 @@ table.center tr:hover {background-color: #ddd;}
     right: 16px;
     background-color: blue;
   }
+
+
+  nav{
+    background-color: #fd7e14;
+    color: white
+  }
+
+  a{
+    color: white;
+  }

@@ -3,14 +3,14 @@ var templateBarra = `
                         <br>  
                          <img src="**FOTO**" width="50px" height="50px"> 
                          <br>
-                                 Bem vindo, **NOME**
-                                 (<a href="departamento.html?id=**IDDEP**">**DEPARTAMENTO**</a>)
+                         
+                                 **NOME**
                        
                        <br>
                        <br>
                       
                        `;
-                       
+                       /*(<a href="departamento.html?id=**IDDEP**">**DEPARTAMENTO**</a>)--*/
 var templateSelect=`
       <option value="**PARCEIROID**">**PARCEIRONOME**</option>`;
 
@@ -123,7 +123,7 @@ function update() {
             var option = select.options[select.selectedIndex];
 
             document.getElementById("conteudoParceiro").innerHTML = "/agentesfinanceiros/"+option.value+"/dashboard"
-            window.location = "dashboard.html?"+option.value
+            window.location = "dashboardNova.html?"+option.value
         }
 
 function logout(){

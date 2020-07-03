@@ -1,28 +1,8 @@
-#resposta{
-    color: red;
-}
-
 body{
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
-button.logoff {
-    border: none;
-    color:white;
-    padding: 1px 1px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    background-color: red;
-  }
-
-  table.center {
+table.center {
     border-collapse: collapse;
     width: 100%;
   }
@@ -44,7 +24,8 @@ table.center tr:hover {background-color: #ddd;}
     color: white;
   }
 
-  btn{
+
+btn {
     border: none;
     color:white;
     padding: 1px 1px;
@@ -57,5 +38,13 @@ table.center tr:hover {background-color: #ddd;}
     position: absolute;
     top: 8px;
     right: 16px;
-    background-color: blue;
+  }
+
+  nav{
+    background-color: #fd7e14;
+    color: white
+  }
+
+  a{
+    color: white;
   }
