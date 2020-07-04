@@ -19,7 +19,9 @@
                   
                    `;
                    /*(<a href="departamento.html?id=**IDDEP**">**DEPARTAMENTO**</a>)--*/
-                    var templateDepartamento='<h3>Departamento - **DEPARTAMENTO**</h3>'
+                   
+                    var templateDepartamento=
+                    '<br><h3>Departamento - **DEPARTAMENTO**</h3>'
 
                     var templateUser= `
                     <div class="row">
@@ -29,7 +31,7 @@
                     <div  b class="col-md-6 comborda">
                         <h3> **NOME** </h3>
                         Racf: **RACF** <br>
-                        Email: **EMAIL** <br>
+                        Email: **EMAIL** <br>        
                     </div>
                     </div>`;
                     

@@ -14,7 +14,7 @@ var templateBarra = `
 var templateSelect=`
       <option value="**PARCEIROID**">**PARCEIRONOME**</option>`;
 
-var selectInicio=`<label for="lparceiros">Parceiros:</label>
+var selectInicio=`<label for="lparceiros"><h3>Parceiros:</h3></label>
                  <select id="parceiro" onChange="update()">`;
 
 var selectFim=`</select>`;

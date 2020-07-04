@@ -14,3 +14,9 @@ nav{
   a{
     color: white;
   }
+  
+  IMG.displayed{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
